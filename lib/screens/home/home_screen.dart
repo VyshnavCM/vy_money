@@ -46,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
           valueListenable: box.listenable(),
           builder: (context, value, child) {
             final items = box.values.toList().reversed.toList();// Reverse the list
-             items.sort((a, b) => b.datetime.compareTo(a.datetime)); 
+             items.sort((a, b) => b.datetime.compareTo(a.datetime)); // Sorting the list according to latest date 
             final itemCount = items.length > 6 ? 6 : items.length;
             return SingleChildScrollView(
               child: Column(

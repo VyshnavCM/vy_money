@@ -353,12 +353,15 @@ class CategoryDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-     final sortedTransactions = [...transactions]; // Create a copy of the transactions list
-  sortedTransactions.sort((a, b) => a.datetime.compareTo(b.datetime)); // Sort by date
-     final calculatedHeight = transactions.length * 45.0;
+    final sortedTransactions = [
+      ...transactions
+    ]; // Create a copy of the transactions list
+    sortedTransactions
+        .sort((a, b) => a.datetime.compareTo(b.datetime)); // Sort by date
+    final calculatedHeight = transactions.length * 45.0;
     return Dialog(
       child: Padding(
-        padding: const EdgeInsets.only(left: 16,top: 16,bottom: 16),
+        padding: const EdgeInsets.only(left: 16, top: 16, bottom: 16),
         child: SingleChildScrollView(
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -378,10 +381,8 @@ class CategoryDialog extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               const SizedBox(height: 8),
-             
               SizedBox(
-                height: calculatedHeight > 200 ? 200 : calculatedHeight,
-                
+                height: calculatedHeight > 400 ? 400 : calculatedHeight,
                 child: ListView.builder(
                   shrinkWrap: true,
                   itemCount: sortedTransactions.length,
