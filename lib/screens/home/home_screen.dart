@@ -213,6 +213,7 @@ class InfoDialog extends StatelessWidget {
               ),
             ],
           ),
+           SizedBox(height: 5,),
           Row(
             children: [
               Text('Mode       :',
@@ -223,6 +224,8 @@ class InfoDialog extends StatelessWidget {
               ),
             ],
           ),
+           SizedBox(height: 5,),
+
           Row(
             children: [
               Text('Details     :',
@@ -233,6 +236,8 @@ class InfoDialog extends StatelessWidget {
               ),
             ],
           ),
+           SizedBox(height: 5,),
+
           Row(
             children: [
               Text('Amount   :',
@@ -243,6 +248,8 @@ class InfoDialog extends StatelessWidget {
               ),
             ],
           ),
+           SizedBox(height: 5,),
+
           Row(
             children: [
               Text('Date         :',
