@@ -10,23 +10,7 @@ import 'package:vy_money/data/model/transaction/add_date.dart';
 import 'package:vy_money/screens/transactions/all_transaction_screen.dart';
 import 'package:vy_money/screens/transactions/transcation_screen.dart';
 
-// Widget getList(AddData history, int index) {
-//   return Dismissible(
-//       key: UniqueKey(),
-//       onDismissed: (direction) {
-//         history.delete();
-//       },
-//       child: list(index, history));
-// }
 
-// Widget getList(AddData history, int index) {
-//   return Dismissible(
-//       key: UniqueKey(),
-//       onDismissed: (direction) {
-//         history.delete();
-//       },
-//       child: list(index, history));
-// }
 
 Padding transaction(BuildContext context) {
   return Padding(
@@ -141,9 +125,10 @@ Positioned amountCard() {
     top: 120,
     left: 37,
     child: Container(
-      height: 170,
+      height: 172,
       width: 320,
       decoration: BoxDecoration(
+        border: Border.all(color: backgroundCardCOlor,width: 1.9),
         color: primaryColor,
         borderRadius: BorderRadius.circular(15),
       ),

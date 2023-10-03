@@ -45,8 +45,8 @@ class _HomeScreenState extends State<HomeScreen> {
         child: ValueListenableBuilder(
           valueListenable: box.listenable(),
           builder: (context, value, child) {
-            final items =
-                box.values.toList().reversed.toList(); // Reverse the list
+            final items = box.values.toList().reversed.toList();// Reverse the list
+             items.sort((a, b) => b.datetime.compareTo(a.datetime)); 
             final itemCount = items.length > 6 ? 6 : items.length;
             return SingleChildScrollView(
               child: Column(
@@ -115,7 +115,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             SlidableAction(
               onPressed: (ctx) {
-               Navigator.of(context).push(
+                Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (context) => AddScreen(editData: history),
                   ),

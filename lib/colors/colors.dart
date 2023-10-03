@@ -5,4 +5,4 @@ Color backgroundCardCOlor = const Color.fromARGB(255, 14, 23, 16);
 Color backgroundColor = const Color.fromARGB(255, 255, 255, 255);
 Color expenseColor =const Color.fromARGB(255, 234, 50, 36) ;
 Color incomeColor = const Color.fromARGB(255, 13, 161, 36);
-Color mainBackgroundColor =Color.fromARGB(255, 165, 243, 224);
+Color mainBackgroundColor =const Color.fromARGB(255, 183, 245, 229);

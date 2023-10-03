@@ -258,8 +258,13 @@ class AddScreenState extends State<AddScreen> {
               firstDate: DateTime.now().subtract(const Duration(days: 60)),
               lastDate: DateTime.now(),
             );
-            if (newDate == Null) return;
+            if (newDate == Null){
+
+             return ;
+            }
+            
             setState(() {
+            
               date = newDate!;
             });
           },
