@@ -36,11 +36,9 @@ class _ExpenseCategoryListState extends State<ExpenseCategoryList> {
             filteredList.add(defaultCategory);
           }
         }
-        return 
-
-         ListView.builder(
+        return ListView.builder(
           itemBuilder: (context, index) {
-             final category = mergedList[index];
+            final category = mergedList[index];
             final isDefaultCategory = defaultExpenseCategory.contains(category);
             return Padding(
               padding: const EdgeInsets.only(left: 15),
@@ -58,7 +56,6 @@ class _ExpenseCategoryListState extends State<ExpenseCategoryList> {
               ),
             );
           },
-
           itemCount: mergedList.length,
         );
       },

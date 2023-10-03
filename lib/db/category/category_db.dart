@@ -72,4 +72,8 @@ class CategoryDb implements CategoryDbFunctions {
     await _categoryDb.delete(categoryID);
     refreshUI();
   }
+  
+  
+  
+
 }

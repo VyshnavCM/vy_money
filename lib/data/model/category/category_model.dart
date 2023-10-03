@@ -16,7 +16,7 @@ class CategoryModel extends HiveObject {
   final String id;
 
   @HiveField(1)
-  final String name;
+   String name;
 
   @HiveField(2)
   late final bool isDeleted;

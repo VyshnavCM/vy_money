@@ -1,4 +1,3 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, unused_import, prefer_typing_uninitialized_variables, unused_local_variable
 
 import 'dart:async';
 
@@ -12,8 +11,6 @@ import 'package:vy_money/data/model/transaction/add_date.dart';
 import 'package:vy_money/db/category/category_db.dart';
 import 'package:vy_money/screens/add_transcations/add_screen.dart';
 import 'package:vy_money/colors/colors.dart';
-import 'package:vy_money/screens/profile/profile_screen.dart';
-import 'package:vy_money/screens/transactions/transcation_screen.dart';
 import 'package:vy_money/screens/home/components.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -30,7 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     super.initState();
     //to update the greeting every minute
-    Timer.periodic(Duration(minutes: 1), (timer) {
+    Timer.periodic(const Duration(minutes: 1), (timer) {
       updateGreeting();
     });
   }
@@ -55,7 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   transaction(context),
                   ListView.builder(
                     shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     itemCount: itemCount,
                     itemBuilder: (context, index) {
                       history = items[index];
@@ -76,17 +73,17 @@ class _HomeScreenState extends State<HomeScreen> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Confirm Deletion'),
-          content: Text('Are you sure you want to delete this item?'),
+          title: const Text('Confirm Deletion'),
+          content: const Text('Are you sure you want to delete this item?'),
           actions: <Widget>[
             TextButton(
-              child: Text('Cancel'),
+              child: const Text('Cancel'),
               onPressed: () {
                 Navigator.of(context).pop(); // Close the dialog
               },
             ),
             TextButton(
-              child: Text('Confirm'),
+              child: const Text('Confirm'),
               onPressed: () {
                 history.delete(); // Perform the deletion
                 Navigator.of(context).pop(); // Close the dialog
@@ -102,15 +99,15 @@ class _HomeScreenState extends State<HomeScreen> {
     return Slidable(
         key: UniqueKey(),
         endActionPane: ActionPane(
-          motion: DrawerMotion(),
+          motion: const DrawerMotion(),
           children: [
             SlidableAction(
               onPressed: (ctx) {
                 showDeleteConfirmationDialog(history);
               },
-              backgroundColor: Color.fromARGB(255, 246, 5, 5),
+              backgroundColor: const Color.fromARGB(255, 246, 5, 5),
               foregroundColor: Colors.white,
-              icon: Icons.delete,
+              icon:Icons.delete,
               label: 'Delete',
             ),
             SlidableAction(
@@ -121,7 +118,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 );
               },
-              backgroundColor: Color(0xFF21B7CA),
+              backgroundColor: const Color(0xFF21B7CA),
               foregroundColor: Colors.white,
               icon: Icons.edit,
               label: 'Edit',
@@ -151,11 +148,11 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               Text(
                 history.category.toString(),
-                style: TextStyle(fontSize: 17, fontWeight: FontWeight.w600),
+                style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w600),
               ),
               Text(
                 history.heading,
-                style: TextStyle(
+                style: const TextStyle(
                     fontSize: 17,
                     fontWeight: FontWeight.w600,
                     color: Color.fromARGB(255, 88, 88, 88)),
@@ -169,7 +166,7 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 Text(
                   history.mode,
-                  style: TextStyle(fontSize: 16),
+                  style: const TextStyle(fontSize: 16),
                 ),
                 Text('₹${history.amount}',
                     style: TextStyle(
@@ -195,68 +192,68 @@ class InfoDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Center(child: Text('Transaction Details')),
+      title: const Center(child: Text('Transaction Details')),
       content: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           Row(
             children: [
-              Text('Category :',
+              const Text('Category :',
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
               Text(
                 ' ${history.category.toString()}',
-                style: TextStyle(fontSize: 17),
+                style: const TextStyle(fontSize: 17),
               ),
             ],
           ),
-           SizedBox(height: 5,),
+           const SizedBox(height: 5,),
           Row(
             children: [
-              Text('Mode       :',
+              const Text('Mode       :',
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
               Text(
                 ' ${history.mode}',
-                style: TextStyle(fontSize: 17),
+                style: const TextStyle(fontSize: 17),
               ),
             ],
           ),
-           SizedBox(height: 5,),
+           const SizedBox(height: 5,),
 
           Row(
             children: [
-              Text('Details     :',
+              const Text('Details     :',
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
               Text(
                 ' ${history.heading}',
-                style: TextStyle(fontSize: 17),
+                style: const TextStyle(fontSize: 17),
               ),
             ],
           ),
-           SizedBox(height: 5,),
+           const SizedBox(height: 5,),
 
           Row(
             children: [
-              Text('Amount   :',
+              const Text('Amount   :',
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
               Text(
                 ' ₹${history.amount}',
-                style: TextStyle(fontSize: 17),
+                style: const TextStyle(fontSize: 17),
               ),
             ],
           ),
-           SizedBox(height: 5,),
+           const SizedBox(height: 5,),
 
           Row(
             children: [
-              Text('Date         :',
+              const Text('Date         :',
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
               Text(
                 ' ${DateFormat('MMM d, yyyy').format(history.datetime)}',
-                style: TextStyle(fontSize: 17),
+                style: const TextStyle(fontSize: 17),
               ),
             ],
           ), // Format the date as needed
@@ -264,7 +261,7 @@ class InfoDialog extends StatelessWidget {
       ),
       actions: <Widget>[
         TextButton(
-          child: Text('Close'),
+          child: const Text('Close'),
           onPressed: () {
             Navigator.of(context).pop();
           },
