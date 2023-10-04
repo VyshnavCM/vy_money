@@ -283,7 +283,11 @@ class _AnalysisPageState extends State<AnalysisPage>
           showDialog(
             context: context,
             builder: (context) => CategoryDialog(
-                category: entry.key, transactions: transactionsInCategory),
+              category: entry.key,
+              transactions: transactionsInCategory,
+              selectedMonth: selectedMonth,
+              selectedDateRange: selectedDateRange,
+            ),
           );
         },
         child: ListTile(
@@ -347,14 +351,40 @@ class ChartData {
 class CategoryDialog extends StatelessWidget {
   final String category;
   final List<AddData> transactions;
+  final DateTime? selectedMonth;
+  final DateTimeRange? selectedDateRange;
 
-  const CategoryDialog(
-      {super.key, required this.category, required this.transactions});
+  const CategoryDialog({
+    super.key,
+    required this.category,
+    required this.transactions,
+    required this.selectedMonth,
+    required this.selectedDateRange,
+  });
+  List<AddData> filterTransactions() {
+    // Filter transactions based on selectedMonth or selectedDateRange
+    return transactions.where((transaction) {
+      if (selectedMonth != null) {
+        // Filter by selected month
+        return transaction.datetime.year == selectedMonth!.year &&
+            transaction.datetime.month == selectedMonth!.month;
+      } else if (selectedDateRange != null) {
+        // Filter by selected date range
+        final start = selectedDateRange!.start;
+        final end = selectedDateRange!.end;
+        return transaction.datetime
+                .isAfter(start.subtract(Duration(days: 1))) &&
+            transaction.datetime.isBefore(end.add(Duration(days: 1)));
+      }
+      return true; // Default to true if no filters are selected
+    }).toList();
+  }
 
   @override
   Widget build(BuildContext context) {
+    final filteredTransactions = filterTransactions();
     final sortedTransactions = [
-      ...transactions
+      ...filteredTransactions
     ]; // Create a copy of the transactions list
     sortedTransactions
         .sort((a, b) => a.datetime.compareTo(b.datetime)); // Sort by date
