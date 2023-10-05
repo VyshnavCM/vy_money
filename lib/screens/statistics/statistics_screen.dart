@@ -373,8 +373,8 @@ class CategoryDialog extends StatelessWidget {
         final start = selectedDateRange!.start;
         final end = selectedDateRange!.end;
         return transaction.datetime
-                .isAfter(start.subtract(Duration(days: 1))) &&
-            transaction.datetime.isBefore(end.add(Duration(days: 1)));
+                .isAfter(start.subtract(const Duration(days: 1))) &&
+            transaction.datetime.isBefore(end.add(const Duration(days: 1)));
       }
       return true; // Default to true if no filters are selected
     }).toList();

@@ -18,7 +18,7 @@ class _BottomNavState extends State<BottomNav> {
   int indexColor = 0;
   List screen = [
     const HomeScreen(),
-    AnalysisPage(),
+    const AnalysisPage(),
     const Category(),
     const Profile()
   ];

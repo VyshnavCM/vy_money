@@ -46,12 +46,12 @@ class CategoryDb implements CategoryDbFunctions {
   }
 
   Future<void> refreshUI() async {
-    final _allCategories = await getCategories();
+    final allCategories = await getCategories();
     incomeCategoryListListner.value.clear();
     expenseCategoryListListner.value.clear();
 
     await Future.forEach(
-      _allCategories,
+      allCategories,
       (CategoryModel category) {
         if (category.type == CategoryType.income) {
           
@@ -68,8 +68,8 @@ class CategoryDb implements CategoryDbFunctions {
 
   @override
   Future<void> deleteCategory(String categoryID) async {
-    final _categoryDb = await Hive.openBox<CategoryModel>(CATEGORY_DB_NAME);
-    await _categoryDb.delete(categoryID);
+    final categoryDb = await Hive.openBox<CategoryModel>(CATEGORY_DB_NAME);
+    await categoryDb.delete(categoryID);
     refreshUI();
   }
   
