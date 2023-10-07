@@ -150,7 +150,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w600),
               ),
               Text(
-                history.heading,
+                DateFormat('d-MMM-yy').format(history.datetime),
                 style: const TextStyle(
                     fontSize: 17,
                     fontWeight: FontWeight.w600,
@@ -164,7 +164,7 @@ class _HomeScreenState extends State<HomeScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  history.mode,
+                  history.heading,
                   style: const TextStyle(fontSize: 16),
                 ),
                 Text('₹${history.amount}',
