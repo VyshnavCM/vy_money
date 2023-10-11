@@ -188,11 +188,13 @@ Positioned amountCard() {
                       children: [
                         CircleAvatar(
                           radius: 13,
-                          backgroundColor: Color.fromARGB(255, 26, 108, 101),
+                          backgroundColor: Colors.white,
+                          
                           child: Icon(
                             Icons.arrow_downward_rounded,
-                            color: Colors.white,
+                            color: Colors.red,
                             size: 17,
+                            weight: 19,
                           ),
                         ),
                         SizedBox(
@@ -223,10 +225,10 @@ Positioned amountCard() {
                       children: [
                         CircleAvatar(
                           radius: 13,
-                          backgroundColor: Color.fromARGB(255, 26, 108, 101),
+                          backgroundColor: Colors.white,
                           child: Icon(
                             Icons.arrow_upward_rounded,
-                            color: Colors.white,
+                            color: const Color.fromARGB(255, 2, 249, 10),
                             size: 17,
                           ),
                         ),
