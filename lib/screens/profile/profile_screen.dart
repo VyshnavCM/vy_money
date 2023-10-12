@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -52,23 +52,25 @@ class _ProfileState extends State<Profile> {
               height: 30,
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
-                  'Select Avatar',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                Center(
+                  child: Text(
+                    'Select Avatar',
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
                 ),
-                SizedBox(
-                  width: 79,
-                ),
-                IconButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    icon: Icon(Icons.close)),
-                SizedBox(
-                  width: 20,
-                )
+                // SizedBox(
+                //   width: 79,
+                // ),
+                // IconButton(
+                //     onPressed: () {
+                //       Navigator.pop(context);
+                //     },
+                //     icon: Icon(Icons.close)),
+                // SizedBox(
+                //   width: 20,
+                // )
               ],
             ),
             SizedBox(

@@ -29,6 +29,8 @@ class _SplashScreenState extends State<SplashScreen> {
       child: Scaffold(
         backgroundColor: const Color.fromRGBO(3, 10, 5, 1),
         body: Column(
+          // mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const SizedBox(
               height: 200,
@@ -38,9 +40,9 @@ class _SplashScreenState extends State<SplashScreen> {
                     height: 300,
                     child: Row(
                       children: [
-                        const SizedBox(
-                          width: 70,
-                        ),
+                        // const SizedBox(
+                        //   width: 70,
+                        // ),
                         Image.asset('assets/Splash_image_2.png'),
                       ],
                     ))),

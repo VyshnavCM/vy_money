@@ -60,39 +60,66 @@ Widget head() {
                   String greeting = updateGreeting();
                   return Stack(
                     children: [
-                      Positioned(
-                        top: 20,
-                        left: 320,
-                        child: CircleAvatar(
-                          radius: 26,
-                          backgroundColor: Colors.amber,
-                          child: CircleAvatar(
-                            radius: 23,
-                            backgroundImage: AssetImage(
-                                'assets/avatar${userProfile!.avatarIndex}.png'),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 20.0, left: 20),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              greeting,
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w100),
+                     SizedBox(
+                      // width: 320,
+                       child: ListTile(
+                       title: Text(
+                                greeting,
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w100),
+                              ),
+                              subtitle:Text(
+                                userProfile!.name,
+                                style:
+                                    TextStyle(color: Colors.white, fontSize: 20),
+                              ),
+                              trailing:CircleAvatar(
+                            radius: 26,
+                            backgroundColor: Colors.amber,
+                            child: CircleAvatar(
+                              radius: 23,
+                              backgroundImage: AssetImage(
+                                  'assets/avatar${userProfile.avatarIndex}.png'),
                             ),
-                            Text(
-                              userProfile.name,
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 20),
-                            ),
-                          ],
-                        ),
-                      )
+                       ),),
+                     )
+                      
+
+                      // Positioned(
+                      //   top: 20,
+                      //   left: 320,
+                      //   child: CircleAvatar(
+                      //     radius: 26,
+                      //     backgroundColor: Colors.amber,
+                      //     child: CircleAvatar(
+                      //       radius: 23,
+                      //       backgroundImage: AssetImage(
+                      //           'assets/avatar${userProfile!.avatarIndex}.png'),
+                      //     ),
+                      //   ),
+                      // ),
+                      // Padding(
+                      //   padding: const EdgeInsets.only(top: 20.0, left: 20),
+                      //   child: Column(
+                      //     crossAxisAlignment: CrossAxisAlignment.start,
+                      //     children: [
+                      //       Text(
+                      //         greeting,
+                      //         style: TextStyle(
+                      //             color: Colors.white,
+                      //             fontSize: 18,
+                      //             fontWeight: FontWeight.w100),
+                      //       ),
+                      //       Text(
+                      //         userProfile.name,
+                      //         style:
+                      //             TextStyle(color: Colors.white, fontSize: 20),
+                      //       ),
+                      //     ],
+                      //   ),
+                      // )
                     ],
                   );
                 },
@@ -100,7 +127,7 @@ Widget head() {
             ),
           ],
         ),
-        amountCard()
+        Center(child: amountCard())
       ],
     ),
   );
