@@ -57,7 +57,7 @@ class _IntroductionScreenPageState extends State<IntroductionScreenPage> {
               itemBuilder: (context, index) {
                 return Image.asset(
                   _imagePaths[index],
-                  fit: BoxFit.cover, // Cover the entire screen.
+                  fit: BoxFit.contain, // Cover the entire screen.
                 );
               },
             ),
