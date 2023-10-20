@@ -87,39 +87,7 @@ Widget head() {
                      )
                       
 
-                      // Positioned(
-                      //   top: 20,
-                      //   left: 320,
-                      //   child: CircleAvatar(
-                      //     radius: 26,
-                      //     backgroundColor: Colors.amber,
-                      //     child: CircleAvatar(
-                      //       radius: 23,
-                      //       backgroundImage: AssetImage(
-                      //           'assets/avatar${userProfile!.avatarIndex}.png'),
-                      //     ),
-                      //   ),
-                      // ),
-                      // Padding(
-                      //   padding: const EdgeInsets.only(top: 20.0, left: 20),
-                      //   child: Column(
-                      //     crossAxisAlignment: CrossAxisAlignment.start,
-                      //     children: [
-                      //       Text(
-                      //         greeting,
-                      //         style: TextStyle(
-                      //             color: Colors.white,
-                      //             fontSize: 18,
-                      //             fontWeight: FontWeight.w100),
-                      //       ),
-                      //       Text(
-                      //         userProfile.name,
-                      //         style:
-                      //             TextStyle(color: Colors.white, fontSize: 20),
-                      //       ),
-                      //     ],
-                      //   ),
-                      // )
+                      
                     ],
                   );
                 },
@@ -127,6 +95,7 @@ Widget head() {
             ),
           ],
         ),
+        
         Center(child: amountCard())
       ],
     ),
@@ -147,147 +116,148 @@ String updateGreeting() {
   return greeting;
 }
 
-Positioned amountCard() {
-  return Positioned(
-    top: 120,
-    left: 37,
-    child: Container(
-      height: 172,
-      width: 320,
-      decoration: BoxDecoration(
-        border: Border.all(color: backgroundCardCOlor,width: 1.9),
-        color: primaryColor,
-        borderRadius: BorderRadius.circular(15),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(
-            height: 10,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 12.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  Icons.account_balance_wallet_outlined,
-                  color: Colors.white,
-                ),
-                SizedBox(
-                  width: 5,
-                ),
-                Text(
-                  'Total Balance',
-                  style: TextStyle(
+Column amountCard() {
+  return Column(
+    children: [
+      SizedBox(height: 100,),
+      Container(
+        height: 172,
+        width: 320,
+        decoration: BoxDecoration(
+          border: Border.all(color: backgroundCardCOlor,width: 1.9),
+          color: primaryColor,
+          borderRadius: BorderRadius.circular(15),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+              height: 10,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.account_balance_wallet_outlined,
                     color: Colors.white,
-                    fontSize: 18,
-                    fontWeight: FontWeight.w500,
                   ),
-                ),
-              ],
+                  SizedBox(
+                    width: 5,
+                  ),
+                  Text(
+                    'Total Balance',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
-          SizedBox(
-            height: 7,
-          ),
-          Center(
-            child: Text(
-              '₹ ${total()}',
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold),
+            SizedBox(
+              height: 7,
             ),
-          ),
-          SizedBox(
-            height: 18,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Row(
-                      children: [
-                        CircleAvatar(
-                          radius: 13,
-                          backgroundColor: Colors.white,
-                          
-                          child: Icon(
-                            Icons.arrow_downward_rounded,
-                            color: Colors.red,
-                            size: 17,
-                            weight: 19,
+            Center(
+              child: Text(
+                '₹ ${total()}',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
+            SizedBox(
+              height: 18,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Row(
+                        children: [
+                          CircleAvatar(
+                            radius: 13,
+                            backgroundColor: Colors.white,
+                            
+                            child: Icon(
+                              Icons.arrow_downward_rounded,
+                              color: Colors.red,
+                              size: 17,
+                              weight: 19,
+                            ),
                           ),
-                        ),
-                        SizedBox(
-                          width: 7,
-                        ),
-                        Text(
-                          'Expense',
-                          style: TextStyle(color: Colors.white, fontSize: 18),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Text(
-                      '₹${expense()}',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 21,
-                          fontWeight: FontWeight.bold),
-                    ),
-                  ],
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Row(
-                      children: [
-                        CircleAvatar(
-                          radius: 13,
-                          backgroundColor: Colors.white,
-                          child: Icon(
-                            Icons.arrow_upward_rounded,
-                            color: const Color.fromARGB(255, 2, 249, 10),
-                            size: 17,
+                          SizedBox(
+                            width: 7,
                           ),
-                        ),
-                        SizedBox(
-                          width: 7,
-                        ),
-                        Text(
-                          'Income',
-                          style: TextStyle(color: Colors.white, fontSize: 18),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Text(
-                      '₹${income()}',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 21,
-                          fontWeight: FontWeight.bold),
-                    )
-                  ],
-                )
-              ],
+                          Text(
+                            'Expense',
+                            style: TextStyle(color: Colors.white, fontSize: 18),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Text(
+                        '₹${expense()}',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 21,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ],
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Row(
+                        children: [
+                          CircleAvatar(
+                            radius: 13,
+                            backgroundColor: Colors.white,
+                            child: Icon(
+                              Icons.arrow_upward_rounded,
+                              color: const Color.fromARGB(255, 2, 249, 10),
+                              size: 17,
+                            ),
+                          ),
+                          SizedBox(
+                            width: 7,
+                          ),
+                          Text(
+                            'Income',
+                            style: TextStyle(color: Colors.white, fontSize: 18),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Text(
+                        '₹${income()}',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 21,
+                            fontWeight: FontWeight.bold),
+                      )
+                    ],
+                  )
+                ],
+              ),
             ),
-          ),
-          SizedBox(
-            height: 2,
-          ),
-        ],
+            SizedBox(
+              height: 2,
+            ),
+          ],
+        ),
       ),
-    ),
+    ],
   );
 }

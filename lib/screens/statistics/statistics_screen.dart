@@ -213,56 +213,60 @@ class _AnalysisPageState extends State<AnalysisPage>
       );
     }
 
-    return Expanded(
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            SizedBox(
-              width: double.infinity,
-              height: 350,
-              child: SfCircularChart(
-                title: ChartTitle(
-                  text: 'Total amount ₹$totalAmount',
-                  textStyle: const TextStyle(
-                      fontWeight: FontWeight.bold, fontSize: 15),
-                  alignment: ChartAlignment.center,
-                ),
-                series: <CircularSeries>[
-                  DoughnutSeries<ChartData, String>(
-                    dataSource: chartData,
-                    xValueMapper: (ChartData data, _) => data.category,
-                    yValueMapper: (ChartData data, _) => data.amount,
-                    dataLabelMapper: (ChartData data, _) =>
-                        '${data.category} \n${(data.amount * 100).toStringAsFixed(1)}%',
-                    dataLabelSettings: const DataLabelSettings(
-                      isVisible: true,
-                      labelPosition: ChartDataLabelPosition.outside,
-                      labelIntersectAction: LabelIntersectAction.shift,
-                      overflowMode: OverflowMode.trim,
-                      connectorLineSettings: ConnectorLineSettings(
-                          type: ConnectorType.curve, length: '15%'),
+    return Column(
+      children: [
+        Expanded(
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                SizedBox(
+                  width: double.infinity,
+                  height: 350,
+                  child: SfCircularChart(
+                    title: ChartTitle(
+                      text: 'Total amount ₹$totalAmount',
+                      textStyle: const TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 15),
+                      alignment: ChartAlignment.center,
                     ),
-                    radius: '65%',
-                    innerRadius: '60%',
+                    series: <CircularSeries>[
+                      DoughnutSeries<ChartData, String>(
+                        dataSource: chartData,
+                        xValueMapper: (ChartData data, _) => data.category,
+                        yValueMapper: (ChartData data, _) => data.amount,
+                        dataLabelMapper: (ChartData data, _) =>
+                            '${data.category} \n${(data.amount * 100).toStringAsFixed(1)}%',
+                        dataLabelSettings: const DataLabelSettings(
+                          isVisible: true,
+                          labelPosition: ChartDataLabelPosition.outside,
+                          labelIntersectAction: LabelIntersectAction.shift,
+                          overflowMode: OverflowMode.trim,
+                          connectorLineSettings: ConnectorLineSettings(
+                              type: ConnectorType.curve, length: '15%'),
+                        ),
+                        radius: '65%',
+                        innerRadius: '60%',
+                      ),
+                    ],
                   ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 16),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16),
-              child: SizedBox(
-                height: 30,
-                child: Text(
-                  'Category List',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
-              ),
+                const SizedBox(height: 16),
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16),
+                  child: SizedBox(
+                    height: 30,
+                    child: Text(
+                      'Category List',
+                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ),
+                _buildCategoryList(type, categoryAmountMap, totalAmount),
+              ],
             ),
-            _buildCategoryList(type, categoryAmountMap, totalAmount),
-          ],
+          ),
         ),
-      ),
+      ],
     );
   }
 

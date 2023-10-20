@@ -48,6 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Column(
                 children: [
                   head(),
+                  
                   transaction(context),
                   ListView.builder(
                     shrinkWrap: true,
