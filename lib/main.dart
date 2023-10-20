@@ -1,5 +1,6 @@
 // ignore_for_file: unused_import
 
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:vy_money/colors/colors.dart';
 import 'package:vy_money/data/model/category/category_model.dart';
@@ -12,8 +13,14 @@ import 'package:vy_money/screens/statistics/statistics_screen.dart';
 import 'package:vy_money/widgets/bottomnav.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
-
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+      options: FirebaseOptions(
+          apiKey: "AIzaSyBficOqFrLmW-OJBPD0P1LEL1TRIhIxmvc",
+          appId: "1:86248072774:web:90f38f8d37a8309c7a0c47",
+          messagingSenderId: "86248072774",
+          projectId: "vy-money-9984f"));
   await Hive.initFlutter();
   Hive.registerAdapter(AddDataAdapter());
   Hive.registerAdapter(CategoryTypeAdapter());
@@ -23,15 +30,14 @@ void main() async {
   var userBox = await Hive.openBox<UserProfile>('user_profile');
   var presetBox = await Hive.openBox<PresetAvatar>('preser_avatar');
   await Hive.openBox<AddData>('data');
-  
-  if(userBox.isEmpty){
+
+  if (userBox.isEmpty) {
     userBox.add(UserProfile('User', 1));
   }
 
-  if(presetBox.isEmpty){
+  if (presetBox.isEmpty) {
     presetBox.add(PresetAvatar('assets/avatar1.png'));
   }
-  
 
   runApp(const MyApp());
 }
@@ -48,9 +54,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: primaryColor),
         useMaterial3: true,
       ),
-      home:const IntroductionScreenPage(),
+      home: const IntroductionScreenPage(),
       debugShowCheckedModeBanner: false,
     );
   }
 }
-
